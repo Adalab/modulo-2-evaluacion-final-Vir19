@@ -6,7 +6,6 @@ const favourites = document.querySelector('.js__favourites');
 const searchForm = document.querySelector('.js__searchForm');
 const inputSearch = document.querySelector('.js__inputSearch');
 const btnSearch = document.querySelector('.js__btnSearch');
-//const newPhoto = { imageUrl: placeHolderPhoto };
 let characterInfo = [];
 let favouritesData = [];
 const trashCan = document.querySelector('.js_trashCan');
@@ -15,6 +14,22 @@ const deleteAllBtn = document.querySelector('.js__deleteAllBtn');
 
 
 // FUNCIONES
+function placeHolderPicInsert() {
+  const index1 = 12;
+  const index2 = 39;
+  const imageUrl = placeHolderPhoto;
+
+  if (characterInfo[index1]) {
+    characterInfo[index1].imageUrl = imageUrl;
+  }
+
+  if (characterInfo[index2]) {
+    characterInfo[index2].imageUrl = imageUrl;
+  }
+
+  return characterInfo;
+}
+
 function renderCharacter(characterData) {
   charactersUl.innerHTML += `
     <ul class="character-card" data-id="${characterData._id}">
@@ -108,7 +123,7 @@ function handleDeleteFavourited () {
         if (characterLi) {
           characterLi.classList.remove('favourited');
         }
-        // Vuelve a renderizar la lista de favoritos
+        
         renderAllFavourites();
       }  
     }
@@ -152,6 +167,8 @@ fetch ('//api.disneyapi.dev/character?pageSize=50')
 .then(data => {
  console.log(data.data);
  characterInfo = data.data;
+
+ placeHolderPicInsert();
 
  renderAllCharacters();
  const storedFavouritesData = localStorage.getItem('favouritesData');
