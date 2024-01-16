@@ -13,16 +13,14 @@ const deleteAllBtn = document.querySelector('.js__deleteAllBtn');
 
 // FUNCIONES
 function placeHolderPicInsert() {
-  const index1 = 12;
-  const index2 = 39;
   const imageUrl = placeHolderPhoto;
 
-  if (characterInfo[index1]) {
-    characterInfo[index1].imageUrl = imageUrl;
+  if (characterInfo[12]) {
+    characterInfo[12].imageUrl = imageUrl;
   }
 
-  if (characterInfo[index2]) {
-    characterInfo[index2].imageUrl = imageUrl;
+  if (characterInfo[39]) {
+    characterInfo[39].imageUrl = imageUrl;
   }
 
   return characterInfo;
