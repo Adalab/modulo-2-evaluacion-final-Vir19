@@ -11,8 +11,6 @@ let favouritesData = [];
 const trashCan = document.querySelector('.js_trashCan');
 const deleteAllBtn = document.querySelector('.js__deleteAllBtn');
 
-
-
 // FUNCIONES
 function placeHolderPicInsert() {
   const index1 = 12;
